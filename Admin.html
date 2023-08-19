@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+   <style>
+        input,h2{
+            display: block; 
+            margin: auto;
+            width: 300px; 
+        }
+        button a{
+          text-decoration: none;
+          color: gray;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+      <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"> <i class="fa-solid fa-user" style="font-size: 34px  ;"></i></button>
+          <a class="navbar-brand" href="#">&emsp;Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+              <!-- <button class="btn btn-outline"><a href="">View Users</a></button> -->
+              <button type="button" class="btn btn-outline-danger mx-5" data-bs-toggle="modal" onclick="updateProfile()" data-bs-target="#updateprofile"> Update Profile </button>
+                <button class="btn btn-outline-secondary mx-5" onclick="productList()" >View product</button>
+                <button type="button" class="btn btn-outline-secondary mx-5" data-bs-toggle="modal" data-bs-target="#Additem">  Add Item  </button>
+                <button class="btn btn-outline-secondary mx-5"  ><a href="userList.html">View Users</a></button>
+                <button class="btn btn-outline-warning" onclick = "logout()"><a href="index.html">Logout</a></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+     
+      <!-- <button onclick="adminAddItemToHome()">show items</button> -->
+      <div id="card" class="container-fluid d-flex row row-cols-1 row-cols-lg-5" style="height:auto;"></div>
+
+   
+ <!-- Admin Update Profile modal -->
+ <div class="modal fade" id="updateprofile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Update Password</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" placeholder="Enter name" name="updateusername" id="username"><br>
+        <input type="tel" minlength="10" maxlength="10" placeholder="Enter Contact Number" id="updatecontact" name="phone"><br>
+        <input type="email" placeholder="Enter Email" readonly name = "email" id="email"><br>
+       <input type="password" placeholder="Enter Old Password" id="updateoldpass"><br>
+       <input type="password" placeholder="Enter New Password" id="updatenewpass"><br>
+       <input type="password" placeholder="Enter Con  firm Password" id="updatecnfpass"><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="updateProfile()">Save changes</button>
+      </div>
+    </div>
+  </div>
+ </div>  
+      
+    
+  
+  <!-- Product Add Modal -->
+  <div class="modal fade" id="Additem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Add Product<br></h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body">
+                <form action="">
+                  
+                  <input type="text"   placeholder="Enter Product Id"  id="productid"><br>
+                  <input type="text"   placeholder="Enter product Name"  id="productname"><br>
+                  <input type="number" placeholder="Enter price" id="productprice" ><br>
+                  <input type="number" placeholder="Enter Quantity" id="productquantity"><br>
+                  <input type="file"   placeholder="select image" id="productimage"><br>
+              </form> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="addProduct()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit product modal -->
+
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="UpdateproductNameInput" class="form-label">Enter Product Name</label>
+              <input type="text" class="form-control" id="UpdateproductNameInput" aria-describedby="emailHelp"
+                placeholder="Enter Product Name">
+            </div>
+
+            <div class="mb-3">
+              <label for="UpdateproductPriceInput" class="form-label">Enter Price</label>
+              <input type="number" class="form-control" id="UpdateproductPriceInput" aria-describedby="emailHelp"
+                placeholder="Enter Product Price">
+            </div>
+
+            <div class="mb-3">
+              <label for="UpdateproductDescInput" class="form-label">Enter Quantity</label>
+              <input type="text" class="form-control" id="UpdateproductDescInput" aria-describedby="emailHelp"
+                placeholder="Enter Product Description">
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Select File</label>
+              <input type="file" class="form-control" id="UpdateproductImageInput" 
+                placeholder="Choose dress">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="Modalupdate()">Update</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<div class="container-fluid" >
+  <div class="row" id="EditDeleteProductHere" style="padding: 3vw; margin: auto;" >
+    
+  </div>
+</div>
+    <script src="admin.js"></script>
+    <script>
+      EditDeletePage();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
+
+
+
