@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+      input,h2{
+          display: block; 
+          margin: auto;
+          width: 300px; 
+      }
+      button a{
+        text-decoration: none;
+        color: black;
+      }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <button type="button" class="btn btn-outline-danger mx-5" data-bs-toggle="modal" onclick="updateProfile()" data-bs-target="#updateUserprofile"> Update Profile </button>
+              <button type="button" class="btn btn-outline-danger mx-5" > <a href="cartItems.html">view cart items</a></button>
+            </form>
+        </div>
+    </div>
+    <button class="btn btn-outline-secondary mx-5" type="submit"><a href="index.html">LogOut</a></button>
+  </nav>
+<center><h1  id="greetings"></h1></center>
+  <!-- Update User Profile -->
+  <div class="modal fade" id="updateUserprofile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Update Password</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" placeholder="Enter name" name="updateusername" id="updateusername"><br>
+          <input type="tel" minlength="10" maxlength="10" placeholder="Enter Contact Number" id="updatecontact" name="phone"><br>
+          <input type="email" placeholder="Enter Email" readonly name = "email" id="updateemail"><br>
+         <input type="password" placeholder="Enter Old Password" id="updateoldpass"><br>
+         <input type="password" placeholder="Enter New Password" id="updatenewpass"><br>
+         <input type="password" placeholder="Enter Con  firm Password" id="updatecnfpass"><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="UpdateUserProfile()">Save changes</button>
+        </div>
+      </div>
+    </div>
+   </div> 
+      <div class="row" id="showAllProduct"></div>
+      <script src="User.js"></script>
+      <script>
+      var entries = JSON.parse(localStorage.getItem("users"));
+      var activeUserindex = JSON.parse(sessionStorage.getItem("loginuserindex"));
+      var activeUser = JSON.parse(sessionStorage.getItem("loginuser"));
+      console.log("hiiiiiiiiiii");
+      document.getElementById("greetings").innerHTML = "Welcome : "+activeUser.username;
+
+      
+      adminAddItemToHome();
+
+      </script>
+    
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
